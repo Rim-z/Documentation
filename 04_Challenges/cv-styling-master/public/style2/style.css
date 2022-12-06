@@ -1,0 +1,201 @@
+h2 {
+  visibility: hidden;
+}
+header {
+  border-bottom: 1px gray solid;
+}
+
+#about {
+  color: gray;
+}
+body div {
+  width: 70%;
+  margin: auto;
+}
+
+h1 {
+  float: left;
+}
+
+#about h3 {
+  visibility: hidden;
+}
+
+hgroup {
+  margin: 50px;
+}
+
+figure {
+  position: relative;
+  padding-left: 200px;
+  transform: rotate(-40deg);
+  float: right;
+}
+
+.content p {
+  font-size: small;
+  color: black;
+}
+
+.experience h4,
+.experience,
+.experience-details {
+  display: inline;
+}
+
+.experience {
+  display: inline;
+  margin-left: 20%;
+}
+
+.experience p {
+  margin-left: 20%;
+}
+
+.experience-institution {
+  visibility: hidden;
+}
+
+.experience-type {
+  color: rgb(64, 153, 119);
+}
+
+.experience-details {
+  float: right;
+  color: gray;
+  margin-right: -60%;
+}
+.skill {
+  border: px solid white;
+  margin-left: 80%;
+}
+
+.skills-primary {
+  background-color: white;
+  font-size: 17px;
+  color: white;
+  display: grid;
+  grid-template-columns: 90px 90px 90px;
+  grid-column-gap: 30px;
+}
+
+.skills-secondary {
+  background-color: white;
+  font-size: 12px;
+  color: white;
+  display: grid;
+  grid-template-columns: 90px 90px 90px;
+  grid-column-gap: 30px;
+}
+
+.skill span {
+  padding: 5px;
+  display: inline-block;
+  width: 100px;
+  height: 20px;
+  background-color: rgb(107, 156, 137);
+  overflow: hidden;
+}
+
+.skills.skills-primary [data-skill="5"] span::after {
+  content: "\2605\2605\2605";
+  color: white;
+}
+.skills.skills-primary [data-skill="3"] span::after {
+  content: "\2605\2605";
+  color: white;
+}
+.skills.skills-primary [data-skill="1"] span::after {
+  content: "\2605";
+  color: white;
+}
+
+.skills.skills-secondary [data-skill="9"] span::after {
+  content: "\2605\2605\2605\2605\2605";
+  color: white;
+}
+.skills.skills-secondary [data-skill="5"] span::after {
+  content: "\2605\2605\2605";
+  color: white;
+}
+.skills.skills-secondary [data-skill="7"] span::after {
+  content: "\2605\2605\2605\2605\2605";
+  color: white;
+}
+
+ul {
+  margin-left: 20%;
+}
+
+#contact h3 {
+  visibility: hidden;
+}
+
+.contact-type {
+  visibility: hidden;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-evenly;
+}
+
+.contact-facebook a {
+  content: url(../images/facebook.png);
+  width: 60px;
+  height: 60px;
+}
+
+.contact-email a {
+  content: url(../images/email.png);
+  width: 60px;
+  height: 60px;
+}
+
+.contact-github a {
+  content: url(../images/github.png);
+  width: 60px;
+  height: 60px;
+}
+
+.contact-phone a {
+  content: url(../images/phone.png);
+  width: 60px;
+  height: 60px;
+}
+
+.contact-skype {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  hgroup {
+    margin: 0px;
+  }
+  .content {
+    display: block;
+    width: 100%;
+  }
+  figure {
+    display: none;
+  }
+  .experience {
+    margin-left: 0px;
+  }
+  .experience p {
+    margin-left: 0px;
+  }
+  h1 {
+    border-bottom: 1px solid rgb(182, 182, 182);
+    margin: 10px 0px 10px -50px;
+  }
+  #\#wrapper > header > div > hgroup > h2 {
+    display: none;
+  }
+  .skills-secondary,
+  .skills-primary {
+    margin-left: -15px;
+  }
+}

@@ -1,6 +1,7 @@
 header {
-  background: rgb(138, 132, 132);
+  background: #8a8484;
   overflow: auto;
+  height: 194px;
 }
 .Introduction {
   display: flex;
@@ -99,12 +100,16 @@ h3::before {
 
 h3 {
   border-bottom: 1px gray solid;
+  width:90% ;
 }
 h4 {
   color: red;
   width: 100%;
 }
 
+P{
+  padding: 20px;
+}
 .experience-date-separator {
   color: red;
 }
