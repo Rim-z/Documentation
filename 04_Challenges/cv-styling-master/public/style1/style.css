@@ -144,7 +144,7 @@ h4 {
   margin: 0;
 }
 .contacts {
-  margin-left: -700px;
+  margin-left: -600px;
 }
 
 .contacts dl dt {
@@ -206,7 +206,7 @@ h4 {
   }
   .contact .contact-value {
     float: left;
-    width: 200px;
+    width: 190px;
     margin: 0px;
     padding: 5px;
   }
