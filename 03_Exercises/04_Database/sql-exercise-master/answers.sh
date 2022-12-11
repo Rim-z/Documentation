@@ -28,4 +28,12 @@ SET graduation="08/09/2018"
 WHERE  name="Layal";
 12-DELETE  FROM students
 WHERE name="Layal";
-
+C)Joins
+14-SELECT companies.name , companies.date, employees.name
+FROM companies
+INNER JOIN employees ON companies.name=employees.Company
+15-SELECT employees.name
+  FROM companies
+  INNER JOIN employees ON companies.name=employees.Company
+  WHERE companies.Date <2000
+  
