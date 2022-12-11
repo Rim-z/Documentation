@@ -10,3 +10,22 @@ WHERE name='Alex';
 INSERT INTO students VALUES ( '7' , 'Rim','23', 'F','700');
 6-UPDATE students SET Points='310' WHERE name='Basma';
 7-UPDATE students SET Points='150' WHERE name='Alex';
+B)Creating Table
+   CREATE TABLE "graduates" (
+	"ID"	INTEGER NOT NULL,
+	"Name"	TEXT NOT NULL UNIQUE,
+	"Age"	INTEGER,
+	"Gender"	TEXT,
+	"Points"	INTEGER,
+	"Graduation"	TEXT,
+	PRIMARY KEY("ID" AUTOINCREMENT)
+);
+ 10- INSERT INTO graduates (name,age,gender,points)
+select name,age,gender,points from students
+where students.name = "Layal"
+11- UPDATE graduates
+SET graduation="08/09/2018"
+WHERE  name="Layal";
+12-DELETE  FROM students
+WHERE name="Layal";
+
