@@ -36,4 +36,15 @@ INNER JOIN employees ON companies.name=employees.Company
   FROM companies
   INNER JOIN employees ON companies.name=employees.Company
   WHERE companies.Date <2000
-  
+  D)Count & Filter
+18-SELECT MAX(Points) AS highestnumber 
+FROM students;
+19-SELECT AVG(Points)
+ FROM students;
+20-SELECT COUNT(Points)
+  FROM students 
+  WHERE points='500';
+21-SELECT Name 
+  from students
+  where Name LIKE '%s%';
+22-SELECT Name FROM students GROUP BY Name ORDER BY COUNT(Points) DESC;
