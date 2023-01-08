@@ -40,10 +40,11 @@ function onDataReceived(text) {
   }
   
   else if(text.slice(0, 5) === 'hello'){
-    hello(text);
+    hello(text);}
 
-  else if(text.match("help")) {
-    help()
+ 
+    else if(text.match("help")) {
+       help()
   }
 
   else{
@@ -70,7 +71,8 @@ function unknownCommand(c){
  */
 function hello(value){
 
-  console.log(value.trim() + "!")
+  newValue = value.replace( /  /g , "")
+  console.log(newValue.trim() + "!")
 }
 
 
