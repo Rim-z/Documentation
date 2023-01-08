@@ -44,9 +44,12 @@ function onDataReceived(text) {
 
  
     else if(text.match("help")) {
-       help()
-  }
-
+      help()
+    }
+    else if(text === 'list\n') {
+      list()
+    }
+    
   else{
     unknownCommand(text);
   }
@@ -79,6 +82,12 @@ function hello(value){
 // help show commands to use
 function help(){
   console.log("lists of commands available: \n hello \n help \n unknown command \n exit \n quit \n node tasks.js \n Hello X")
+}
+
+function list(){
+  let tasks = ['Go to work', 'wow', 'hard work']
+  let tasksList = tasks.map(item => `${item}\n`).join('')
+    console.log(tasksList)
 }
 
 /**
