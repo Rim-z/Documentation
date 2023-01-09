@@ -115,7 +115,7 @@ function hello(value){
 
 // help show commands to use
 function help(){
-  console.log("lists of commands available: \n hello \n help \n unknown command \n exit \n quit \n node tasks.js \n Hello X \n list \n add \n remove")
+  console.log("lists of commands available: \n hello \n help \n unknown command \n exit \n quit \n node tasks.js \n Hello X \n list \n add \n remove \n edit \n check \n uncheck ")
 }
 
 
