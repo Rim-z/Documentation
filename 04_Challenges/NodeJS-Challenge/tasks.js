@@ -59,6 +59,15 @@ function onDataReceived(text) {
   else if(text.match(/remove/)){
     remove(text)
   }
+  else if(text == "edit\n"){
+    error()
+  }
+  else if(text.match(/edit\s+\d\s+\w+/)){
+    edit(text)
+  }
+  else if(text.match(/edit\s+\w+/)){
+    editTwo(text)
+  }
   else{
     unknownCommand(text);
   }
@@ -119,7 +128,21 @@ else if(text.match(/remove\s+\d+/) && number < tasks.length) {
   } else 
     error()
   }
+// function edit last task when user do not specify which task to edit
+function editTwo(text){
+  let newText = text.substr(5)
+  tasks.pop()
+  tasks.push(newText)
+}
 
+// function edit when user specify which task to edit
+
+function edit(text){
+  let newText = text.substr(7)
+  let numb = text.match(/\d+/) - 1;
+  let res =tasks[numb].replace(tasks[numb],newText)
+  tasks[numb] = res
+}
 
 // Add task
 function add(textTask) {
@@ -130,6 +153,7 @@ function add(textTask) {
   }
     
   }
+
 
 /**
  * Exits the application
