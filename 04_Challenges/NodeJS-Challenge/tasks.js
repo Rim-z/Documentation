@@ -35,20 +35,27 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
-  if (text === "quit\n"|| text === "exit\n" ) {
+  let textTask = text.substr(4);
+
+
+  if (text === 'quit\n' || text == 'exit\n') {
     quit();
   }
-  
-  else if(text.slice(0, 5) === 'hello'){
-    hello(text);}
-
- 
-    else if(text.match("help")) {
-      help()
-    }
-    else if(text === 'list\n') {
-      list()
-    }
+  else if(text.slice(0, 5) == 'hello'){
+    hello(text);
+  } 
+  else if(text.match("help")) {
+    help()
+  }
+  else if(text.split(" ", 1) == 'add'){
+    add(textTask)
+  }
+  else if(text.trim() == 'add'){
+    error()
+  }
+  else if(text == "list\n"){
+    list()
+  }
     
   else{
     unknownCommand(text);
@@ -65,6 +72,10 @@ function onDataReceived(text) {
  */
 function unknownCommand(c){
   console.log('unknown command: "'+c.trim()+'"')
+}
+// error function
+function error (){
+  console.log("error")
 }
 
 /**
@@ -83,12 +94,25 @@ function hello(value){
 function help(){
   console.log("lists of commands available: \n hello \n help \n unknown command \n exit \n quit \n node tasks.js \n Hello X")
 }
+let tasks = ['wow','hard work']
 
 function list(){
-  let tasks = ['Go to work', 'wow', 'hard work']
-  let tasksList = tasks.map(item => `${item}\n`).join('')
-    console.log(tasksList)
+ // let taskArray = tasks.map(item => `${item}\n`).join('')
+ for (i=1; i<tasks.length; i++){
+  console.log(i + "-" + tasks[i])
 }
+}
+
+
+// Add task
+function add(textTask) {
+  
+  if(textTask.trim()){
+  tasks.push("[ ]" + textTask)} else {
+    console.log("Error")
+  }
+    
+  }
 
 /**
  * Exits the application
