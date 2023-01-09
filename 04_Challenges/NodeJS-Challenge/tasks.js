@@ -68,13 +68,18 @@ function onDataReceived(text) {
   else if(text.match(/edit\s+\w+/)){
     editTwo(text)
   }
-
-else if (text == "check\n"){
-  error()
-}
-else if (text.match(/check\s+\d+/)){
-  check()
-}
+  else if (text == "check\n"){
+    error()
+  }
+  else if (text.slice(0,5) == "check"){
+    check(text)
+  }
+  else if (text.slice(0,8) == "uncheck "){
+    uncheck(text)
+  }
+  else if(text == "uncheck\n"){
+    error()
+  }
   else{
     unknownCommand(text);
   }
@@ -91,6 +96,7 @@ else if (text.match(/check\s+\d+/)){
 function unknownCommand(c){
   console.log('unknown command: "'+c.trim()+'"')
 }
+
 // error function
 function error (){
   console.log("error")
@@ -102,7 +108,6 @@ function error (){
  * @returns {void}
  */
 function hello(value){
-
   newValue = value.replace( /  /g , "")
   console.log(newValue.trim() + "!")
 }
@@ -113,17 +118,23 @@ function help(){
   console.log("lists of commands available: \n hello \n help \n unknown command \n exit \n quit \n node tasks.js \n Hello X \n list \n add \n remove")
 }
 
-let tasks = [ 'Hello', 'hello 2', 'hello 3']
+
+let tasks = [ '[ ]Hello', '[ ]hello 2', '[ ]hello 3']
 let unchecked = "[ ] "
 let checked = "[✓] "
 
 
+// show list
+
 function list(){
- // let taskArray = tasks.map(item => `${item}\n`).join('')
- for (i=0; i<tasks.length; i++){
-  
-  console.log(i+1 + "-" + unchecked + tasks[i])
-}
+
+
+
+  for (i=0; i<tasks.length; i++){
+    // let tasksUpdated = "[ ]" + tasks[i]
+      console.log(i+1 + " " + tasks[i])
+      
+  }
 }
 // remove task
 function remove(text){
@@ -132,11 +143,56 @@ if (text === 'remove\n'){
   tasks.pop()
 }
 else if(text.match(/remove\s+\d+/) && number < tasks.length) {
-  tasks.splice(number, 1);
-  
-  } else 
-    error()
+tasks.splice(number, 1);
+} else 
+  error()
+}
+
+ // object to get values from when tasks are checked or unchecked
+ let whichOne = [
+  {
+    unchecked: "[ ]",
+    checked: "[✓]"
   }
+] 
+
+// funcion check
+function check(text){
+  let number = text.match(/\d+/)-1;
+  let text2 = tasks[number].slice(3)
+  if (text.match(/check\s+\d+/)&& number < tasks.length){
+    if(tasks[number].slice(0, 3)== "[ ]"){
+       tasks[number]=tasks[number].replace(tasks[number], whichOne[0].checked.concat(text2));
+    } 
+    else if (tasks[number].slice(0,3)== "[✓]") {
+      tasks[number]=tasks[number].replace(tasks[number], whichOne[0].checked.concat(text2));
+    } 
+    else
+       tasks[number]=tasks[number].replace(tasks[number], whichOne[0].checked.concat(tasks[number]));
+       
+  }
+
+}
+
+// function uncheck
+
+function uncheck(text){
+  let number = text.match(/\d+/)-1;
+  let text2 = tasks[number].slice(3)
+  if (text.match(/check\s+\d+/)&& number < tasks.length){
+    if(tasks[number].slice(0, 3)== "[✓]"){
+       tasks[number]=tasks[number].replace(tasks[number], whichOne[0].unchecked.concat(text2));
+    } 
+    else if (tasks[number].slice(0,3)== "[ ]") {
+      tasks[number]=tasks[number].replace(tasks[number], whichOne[0].unchecked.concat(text2));
+    } 
+    else
+       tasks[number]=tasks[number].replace(tasks[number], whichOne[0].unchecked.concat(tasks[number]));
+       
+  }
+
+}
+
 // function edit last task when user do not specify which task to edit
 function editTwo(text){
   let newText = text.substr(5)
