@@ -68,6 +68,13 @@ function onDataReceived(text) {
   else if(text.match(/edit\s+\w+/)){
     editTwo(text)
   }
+
+else if (text == "check\n"){
+  error()
+}
+else if (text.match(/check\s+\d+/)){
+  check()
+}
   else{
     unknownCommand(text);
   }
@@ -107,13 +114,15 @@ function help(){
 }
 
 let tasks = [ 'Hello', 'hello 2', 'hello 3']
-
+let unchecked = "[ ] "
+let checked = "[✓] "
 
 
 function list(){
  // let taskArray = tasks.map(item => `${item}\n`).join('')
  for (i=0; i<tasks.length; i++){
-  console.log(i+1 + "-" + tasks[i])
+  
+  console.log(i+1 + "-" + unchecked + tasks[i])
 }
 }
 // remove task
