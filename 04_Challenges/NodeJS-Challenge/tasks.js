@@ -94,7 +94,7 @@ function hello(value){
 
 // help show commands to use
 function help(){
-  console.log("lists of commands available: \n hello \n help \n unknown command \n exit \n quit \n node tasks.js \n Hello X")
+  console.log("lists of commands available: \n hello \n help \n unknown command \n exit \n quit \n node tasks.js \n Hello X \n list \n add \n remove")
 }
 
 let tasks = [ 'Hello', 'hello 2', 'hello 3']
